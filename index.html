@@ -1,145 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wool & Wonders</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Wool & Wonders — Handmade Crochet</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0E0E13;--sf:#17171F;--sf2:#1F1F2A;--gold:#E9C46A;--gold2:#F6D98A;--tx:#F5F1E8;--mut:#9C95A8;--line:#26262F}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;padding-bottom:96px}
+.serif{font-family:Georgia,'Times New Roman',serif}
+.topbar{background:linear-gradient(90deg,#E9C46A,#F6D98A);color:#231a05;font-size:12px;font-weight:800;text-align:center;padding:8px;letter-spacing:.5px}
+.hdr{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(14,14,19,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo.ball{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,#E9C46A,#b8860b);display:grid;place-items:center;font-size:22px}
+.logo b{font-size:16px;letter-spacing:.3px}.logo small{display:block;font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:700}
+.cartbtn{position:relative;background:var(--sf2);border:1px solid var(--line);color:var(--tx);border-radius:14px;padding:10px 14px;font-size:14px;font-weight:700}
+.cartbtn.n{position:absolute;top:-7px;right:-7px;background:var(--gold);color:#231a05;font-size:11px;min-width:22px;height:22px;border-radius:11px;display:grid;place-items:center;font-weight:800}
+.hero{position:relative;padding:44px 20px 36px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:340px;height:340px;right:-110px;top:-110px;background:radial-gradient(circle,rgba(233,196,106,.28),transparent 70%);border-radius:50%}
+.hero::after{content:"";position:absolute;width:260px;height:260px;left:-90px;bottom:-120px;background:radial-gradient(circle,rgba(150,110,255,.16),transparent 70%);border-radius:50%}
+.hero.kick{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:800;color:var(--gold);border:1px solid rgba(233,196,106,.4);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:40px;line-height:1.08;margin-bottom:10px;position:relative;z-index:1}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#E9C46A,#F6D98A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:14px;margin-bottom:20px;position:relative;z-index:1}
+.hero.row{display:flex;gap:10px;position:relative;z-index:1}
+.btn{border:none;border-radius:16px;padding:14px 22px;font-size:15px;font-weight:800}
+.btn-gold{background:linear-gradient(135deg,#E9C46A,#d9a83f);color:#231a05}
+.btn-ghost{background:var(--sf2);color:var(--tx);border:1px solid var(--line)}
+.stories{display:flex;gap:14px;overflow-x:auto;padding:18px 16px 6px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.story{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:68px;background:none;border:none;color:var(--tx);font-size:11px;font-weight:700}
+.story.ring{width:64px;height:64px;border-radius:50%;padding:3px;background:conic-gradient(from 40deg,#E9C46A,#966ef0,#E9C46A)}
+.story.on.ring{background:var(--gold)}
+.story.ring div{width:100%;height:100%;border-radius:50%;background:var(--sf2);display:grid;place-items:center;font-size:26px;border:3px solid var(--bg)}
+.sec{padding:14px 16px}
+.sec.hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.sec h2{font-size:21px}.sec h2 em{font-style:normal;color:var(--gold)}
+.sec.sub{font-size:12px;color:var(--mut)}
+.rail{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.pcard{min-width:168px;scroll-snap-align:start;background:var(--sf);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.pcard img{width:168px;height:168px;object-fit:cover}
+.pcard.in{padding:10px 12px 12px}
+.pcard.nm{font-size:12.5px;font-weight:700;line-height:1.35;min-height:34px}
+.pcard.hn{font-size:11px;color:var(--mut);margin-top:2px}
+.pcard.pr{font-size:16px;font-weight:800;color:var(--gold);margin:6px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gcard{background:var(--sf);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.gcard img{width:100%;aspect-ratio:1;object-fit:cover}
+.gcard.in{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+.gcard.nm{font-size:13px;font-weight:700;line-height:1.3}
+.gcard.hn{font-size:11px;color:var(--mut)}
+.gcard.pr{font-size:16px;font-weight:800;color:var(--gold);margin-top:auto;padding-top:4px}
+.addbtn{width:100%;margin-top:8px;background:linear-gradient(135deg,#E9C46A,#d9a83f);color:#231a05;border:none;border-radius:12px;padding:10px;font-size:13.5px;font-weight:800}
+.stepper{display:flex;align-items:center;justify-content:space-between;margin-top:8px;background:var(--sf2);border:1px solid var(--line);border-radius:12px;padding:4px}
+.stepper button{width:34px;height:34px;border:none;border-radius:9px;background:var(--gold);color:#231a05;font-size:17px;font-weight:800}
+.stepper b{font-size:14px}
+.paysec{margin:18px 12px;background:linear-gradient(160deg,#1c1c28,#121218);border:1px solid var(--line);border-radius:24px;padding:22px 16px}
+.paysec h2{font-size:21px;margin-bottom:4px}.paysec h2 em{font-style:normal;color:var(--gold)}
+.paysec.sub{font-size:12.5px;color:var(--mut);margin-bottom:14px}
+.qrbox{background:#fff;border-radius:18px;padding:16px;text-align:center;color:#111}
+.qrbox img{width:180px;height:180px;object-fit:contain;margin:6px auto;display:block}
+.upi{display:inline-block;background:#f0e6c8;color:#7a5b12;font-weight:800;padding:8px 14px;border-radius:10px;font-size:14px}
+.copybtn{background:#231a05;color:#F6D98A;border:none;border-radius:10px;padding:8px 16px;font-weight:800;font-size:13px;margin-left:6px}
+.codbox{margin-top:12px;background:var(--sf2);border:1px dashed rgba(233,196,106,.5);border-radius:18px;padding:16px;text-align:center}
+.codbox b{color:var(--gold)}
+.contact{padding:20px 16px;text-align:center}
+.num{font-size:32px;font-weight:800;letter-spacing:1px;margin:10px 0;background:linear-gradient(90deg,#E9C46A,#F6D98A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.crow{display:flex;gap:10px;justify-content:center}
+.cbtn{flex:1;max-width:180px;border:none;border-radius:14px;padding:13px;font-weight:800;font-size:14px}
+footer{text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;background:rgba(20,20,28,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 6px calc(10px + env(safe-area-inset-bottom))}
+.bnav button{flex:1;background:none;border:none;color:var(--mut);font-size:10.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px}
+.bnav button span{font-size:20px}
+.bnav button.on{color:var(--gold)}
+.wafab{position:fixed;right:14px;bottom:92px;z-index:60;width:56px;height:56px;border-radius:50%;border:none;background:#25D366;font-size:27px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.admfab{position:fixed;left:14px;bottom:92px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--sf2);color:var(--tx);font-size:19px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;display:none}
+.ov.open{display:block}
+.drawer{position:fixed;top:0;right:-105%;width:88%;max-width:380px;height:100%;background:var(--sf);z-index:101;transition:right.28s ease;display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.drawer.open{right:0}
+.drawer.dh{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line)}
+.drawer.db{flex:1;overflow-y:auto;padding:12px 16px}
+.ci{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.ci img{width:54px;height:54px;border-radius:12px;object-fit:cover}
+.ci.t{flex:1}.ci.t b{font-size:13px;display:block}.ci.t span{font-size:12px;color:var(--mut)}
+.ci.p{font-weight:800;color:var(--gold);font-size:13.5px}
+.mini{background:var(--sf2);border:1px solid var(--line);color:var(--tx);border-radius:8px;padding:5px 10px;font-size:13px;font-weight:700}
+.drawer.df{padding:14px 16px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--sf)}
+.tot{display:flex;justify-content:space-between;font-size:17px;font-weight:800;margin-bottom:10px}
+.fld{width:100%;background:var(--sf2);border:1px solid var(--line);color:var(--tx);border-radius:12px;padding:12px;margin:6px 0;font-size:14px}
+.fld::placeholder{color:var(--mut)}
+.payrow{display:flex;gap:10px;margin:10px 0}
+.pay{flex:1;border:1.5px solid var(--line);background:var(--sf2);border-radius:14px;padding:11px;text-align:center;font-weight:800;font-size:13.5px;color:var(--tx)}
+.pay.on{border-color:var(--gold);background:rgba(233,196,106,.12)}
+.bigwa{width:100%;background:#25D366;color:#fff;border:none;border-radius:14px;padding:15px;font-size:16px;font-weight:800;margin-top:8px}
+.sheet{position:fixed;left:0;right:0;bottom:-105%;z-index:101;background:var(--sf);border-radius:24px 24px 0 0;padding:20px 16px 30px;transition:bottom.28s ease;max-height:88vh;overflow-y:auto;border-top:1px solid var(--line)}
+.sheet.open{bottom:0}
+.sheet h3{font-size:18px;margin-bottom:12px}
+.x{float:right;border:1px solid var(--line);background:var(--sf2);color:var(--tx);width:32px;height:32px;border-radius:50%;font-size:15px}
+.note{font-size:12px;color:var(--mut);text-align:center;margin-top:10px;line-height:1.5}
+.hidden{display:none!important}
+</style>
 </head>
-
 <body>
-
-<header>
-<div class="logo">
-    <img src="file_00000000b2988208aff2b84003877287.png" alt="Wool & Wonders Logo">
-    <span>Wool & Wonders</span>
-</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-
+<div class="topbar">🚚 FREE DELIVERY in Delhi NCR &nbsp;•&nbsp; 💵 COD AVAILABLE</div>
+<header class="hdr">
+  <div class="logo"><div class="ball">🧶</div><div><b>Wool &amp; Wonders</b><small>HANDMADE CROCHET</small></div></div>
+  <button class="cartbtn" data-act="cart">🛒 <span id="cartN" style="background:var(--gold);color:#231a05;border-radius:8px;padding:2px 8px;font-weight:800">0</span></button>
 </header>
 
-<section class="hero">
+<div class="hero">
+  <span class="kick">✨ 100% HANDMADE IN INDIA</span>
+  <h1 class="serif">Crochet,<br>but make it <em>fashion.</em></h1>
+  <p>हाथ से बना, दिल से बना 🧶 — designer bags, thaalpos &amp; festive decor, crafted for you.</p>
+  <div class="row">
+    <button class="btn btn-gold" data-act="shop">Shop Now →</button>
+    <button class="btn btn-ghost" data-act="wa">💬 WhatsApp</button>
+  </div>
+</div>
 
-<h1>Beautiful Woolen Handicrafts</h1>
+<div class="stories" id="stories"></div>
 
-<p>Premium Quality | Handmade with Love</p>
+<div class="sec">
+  <div class="hd"><h2 class="serif">🔥 <em>Trending</em> Now</h2><span class="sub">most loved</span></div>
+  <div class="rail" id="rail"></div>
+</div>
 
-<a href="#products" class="btn">
-Shop Now
-</a>
+<div class="sec" id="shopsec">
+  <div class="hd"><h2 class="serif">✨ Full <em>Collection</em></h2><span class="sub" id="countLbl"></span></div>
+  <div class="grid" id="grid"></div>
+</div>
 
-</section>
+<div class="paysec">
+  <h2 class="serif">💳 Easy <em>Payment</em></h2>
+  <div class="sub">Cash on Delivery ya Online UPI — aapki marzi!</div>
+  <div class="qrbox">
+    <div style="font-weight:800;font-size:15px">📱 Scan &amp; Pay</div>
+    <img src="qr.jpg" alt="UPI QR">
+    <div><span class="upi">8447661929@fam</span> <button class="copybtn" data-act="copy">Copy</button></div>
+    <div class="note" style="color:#555">GPay / PhonePe / Paytm se scan karo,<br>screenshot WhatsApp pe bhej do ✅</div>
+  </div>
+  <div class="codbox"><b>💵 Cash on Delivery</b><div class="note">Pehle product dekho, phir payment karo.<br>Koi advance nahi! 🎉</div></div>
+</div>
 
-<section id="products">
-  <h2>Our Products</h2>
+<div class="contact" id="contactsec">
+  <div style="font-size:12px;letter-spacing:3px;color:var(--gold);font-weight:800">GET IN TOUCH</div>
+  <div class="num">+91 84476 61929</div>
+  <div class="crow">
+    <button class="cbtn" style="background:var(--sf2);color:var(--tx);border:1px solid var(--line)" data-act="call">📞 Call Now</button>
+    <button class="cbtn" style="background:#25D366;color:#fff" data-act="wa">💬 WhatsApp</button>
+  </div>
+  <div class="note">📍 Delhi • Ghaziabad • Noida<br>✉️ sunitak82639@gmail.com</div>
+</div>
 
-  <div class="product-grid">
+<footer>Made with 💛 by Wool &amp; Wonders • Handmade with love in India</footer>
 
-    <div class="product-card">
-      <img src="Screenshot_20260806-202405~2.jpg" alt="White Flower Crochet Sling Bag">
-      <h3>White Flower Crochet Sling Bag</h3>
-      <p class="price">₹350</p>
+<nav class="bnav">
+  <button data-act="home" class="on"><span>🏠</span>Home</button>
+  <button data-act="shop"><span>🛍️</span>Shop</button>
+  <button data-act="cart"><span>🛒</span>Cart</button>
+  <button data-act="contact"><span>📞</span>Contact</button>
+</nav>
+
+<button class="wafab" data-act="wa">💬</button>
+<button class="admfab" data-act="admin">⚙️</button>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer">
+  <div class="dh"><b class="serif" style="font-size:18px">🛒 Your Order</b><button class="x" data-act="close">✕</button></div>
+  <div class="db" id="cartItems"></div>
+  <div class="df">
+    <div class="tot"><span>Total</span><span id="cartTot" style="color:var(--gold)">₹0</span></div>
+    <div style="font-weight:800;font-size:13.5px;margin-bottom:2px">Payment:</div>
+    <div class="payrow">
+      <div class="pay on" id="payCOD" data-pay="cod">💵 COD</div>
+      <div class="pay" id="payON" data-pay="online">📱 Online UPI</div>
     </div>
+    <input class="fld" id="cName" placeholder="Aapka naam">
+    <input class="fld" id="cPhone" placeholder="Mobile number" inputmode="numeric">
+    <textarea class="fld" id="cAddr" placeholder="Delivery address" rows="2"></textarea>
+    <button class="bigwa" data-act="order">💬 Order on WhatsApp</button>
+  </div>
+</aside>
 
-    <div class="product-card">
-      <img src="Screenshot_20260803-220542~2.jpg" alt="Sunflower Crochet Sling Bag">
-      <h3>Sunflower Crochet Sling Bag</h3>
-      <p class="price">₹350</p>
-    </div>
+<div class="sheet" id="sheet">
+  <button class="x" data-act="close">✕</button>
+  <h3 class="serif">➕ Add Product</h3>
+  <input class="fld" id="aName" placeholder="Product naam">
+  <input class="fld" id="aHindi" placeholder="Hindi naam (optional)">
+  <input class="fld" id="aPrice" placeholder="Price ₹" inputmode="numeric">
+  <div style="font-size:13px;font-weight:700;margin:6px 0">Photo:</div>
+  <input type="file" id="aPhoto" accept="image/*" class="fld">
+  <button class="bigwa" style="background:linear-gradient(135deg,#E9C46A,#d9a83f);color:#231a05" data-act="addp">✅ Product Add Karo</button>
+  <div class="note">Ye product sirf is device me save hoga.</div>
+</div>
 
-    <div class="product-card">
-      <img src="Screenshot_20260803-202519~2.jpg" alt="Unique - Design Thaalpos">
-      <h3>Unique - Design Thaalpos</h3>
-      <p class="price">₹300</p>
-    </div>
-
-    <div class="product-card">
-      <img src="Screenshot_20260722-223416~2.jpg" alt="Laddu - Gopal Dress(4 No. size)">
-      <h3>Laddu - Gopal Dress(4 No. size)</h3>
-      <p class="price">₹200</p>
-    </div>
-
-    <div class="product-card">
-      <img src="Screenshot_20260717-163101~2.jpg" alt="Star - Design Thaalpos">
-      <h3>Star - Design Thaalpos</h3>
-      <p class="price">₹350</p>
-    </div> 
-    
-    <div class="product-card">
-      <img src="Screenshot_20260711-170244~2.jpg" alt="Multicolor Thaalpos">
-      <h3>Multicolor - Thaalpos</h3>
-      <p class="price">₹300</p>
-    </div>
-
-    <div class="product-card">
-      <img src="Screenshot_20260711-170318~2.jpg" alt="Frilled Thaalpos">
-      <h3>Frilled - Thaalpos</h3>
-      <p class="price">₹300</p>
-    </div>
-
-    <div class="product-card">
-      <img src="Screenshot_20260711-170340~2.jpg" alt="Flower Design Thaalpos">
-      <h3>Flower - Design Thaalpos</h3>
-      <p class="price">₹300</p>
-    </div>
-
-    <div class="product-card">
-      <img src="Screenshot_20260711-170359~2.jpg" alt="White Thaalpos">
-      <h3>White - Thaalpos</h3>
-      <p class="price">₹250</p>
-    </div>
-
-    <div class="product-card">
-      <img src="Screenshot_20260711-170426~2.jpg" alt="Rounded Thaalpos">
-      <h3>Rounded - Thaalpos</h3>
-      <p class="price">₹200</p>
-    </div>
-    
-    </div>
-    
-</section>
-
-<section id="about">
-
-<h2>About Us</h2>
-
-<p>
-Welcome to Handmade Thaalpos.
-We create beautiful handmade thaalpos with love and care.
-Our mission is to provide premium quality products at affordable prices.
-We deliver across Delhi, Ghaziabad and Noida.
-</p>
-
-</section>
-
-<section id="contact">
-
-<h2>Contact Us</h2>
-
-<p>WhatsApp: +91 8447661929; 9716147455</p>
-
-<p>Email: sunitak82639@gmail.com</p>
-
-<p>Service Area:
-Delhi | Ghaziabad | Noida</p>
-
-</section>
-
-<footer>
-
-<p>
-© 2026 Handmade Thaalpos
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+<script>
+var BASE = [{"id": "b-0", "name": "White - Flower Crochet Sling Bag", "hindi": "सफेद फूल क्रोशिया स्लिंग बैग", "price": 350, "img": "p0.jpg"}, {"id": "b-1", "name": "Sunflower - Crochet Sling Bag", "hindi": "सूरजमुखी क्रोशिया स्लिंग बैग", "price": 350, "img": "p1.jpg"}, {"id": "b-2", "name": "Unique - Design Thaalpos", "hindi": "यूनिक डिज़ाइन थालपोस", "price": 300, "img": "p2.jpg"}, {"id": "b-3", "name": "Multicolor - Thaalpos", "hindi": "मल्टीकलर थालपोस", "price": 300, "img": "p3.jpg"}, {"id": "b-4", "name": "Star - Design Thaalpos", "hindi": "स्टार डिज़ाइन थालपोस", "price": 350, "img": "p4.jpg"}, {"id": "b-5", "name": "Laddu - Gopal Dress (Size 4 No.)", "hindi": "लड्डू गोपाल ड्रेस (साइज़ 4)", "price": 200, "img": "p5.jpg"}, {"id": "b-6", "name": "Rounded - Thaalpos", "hindi": "गोल थालपोस", "price": 200, "img": "p6.jpg"}, {"id": "b-7", "name": "White - Thaalpos", "hindi": "सफेद थालपोस", "price": 250, "img": "p7.jpg"}, {"id": "b-8", "name": "Flower - Design Thaalpos", "hindi": "फूल डिज़ाइन थालपोस", "price": 300, "img": "p8.jpg"}, {"id": "b-9", "name": "Frilled - Thaalpos", "hindi": "फ्रिल्ड थालपोस", "price": 300, "img": "p9.jpg"}];
+var WA = "918447661929";
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function getCustom(){try{return JSON.parse(localStorage.getItem("ww_v3_custom")||"[]")}catch(e){return[]}}
+function allProds(){var seen={},out=[];BASE.concat(getCustom()).forEach(function(p){if(p&&p.id&&!seen[p.id]){seen[p.id]=1;out.push(p)}});return out}
+var cart={};try{cart=JSON.parse(localStorage.getItem("ww_v3_cart")||"{}")}catch(e){cart={}}
+function saveCart(){try{localStorage.setItem("ww_v3_cart",JSON.stringify(cart))}catch(e){}}
+function byId(id){var r=null;allProds().forEach(function(p){if(p.id===id)r=p});return r}
+function catOf(n){n=String(n).toLowerCase();if(n.indexOf("bag")>=0)return"bag";if(n.indexOf("dress")>=0)return"dress";return"thaalpos"}
+var CATS=[["all","🌟","All"],["bag","👜","Bags"],["thaalpos","🍽️","Thaalpos"],["dress","👗","Dress"]];
+var curCat="all";
+function renderStories(){
+  var el=document.getElementById("stories");var h="";
+  CATS.forEach(function(c){
+    h+='<button class="story'+(curCat===c[0]?" on":"")+'" data-cat="'+c[0]+'"><span class="ring"><div>'+c[1]+'</div></span>'+c[2]+'</button>';
+  });
+  el.innerHTML=h;
+}
+function cardHTML(p,wide){
+  var q=cart[p.id]||0;
+  var ctl=q===0
+   ?'<button class="addbtn" data-add="'+p.id+'">+ Add to Cart</button>'
+    :'<div class="stepper"><button data-dec="'+p.id+'">−</button><b>'+q+'</b><button data-inc="'+p.id+'">+</button></div>';
+  return '<div class="'+(wide?"pcard":"gcard")+'"><img loading="lazy" src="'+p.img+'" alt="'+esc(p.name)+'"><div class="in"><div class="nm">'+esc(p.name)+'</div>'+(p.hindi?'<div class="hn">'+esc(p.hindi)+'</div>':'')+'<div class="pr">₹'+p.price+'</div>'+ctl+'</div></div>';
+}
+function renderAll(){
+  renderStories();
+  var ps=allProds();
+  var rail=document.getElementById("rail");var h="";
+  ps.slice(0,6).forEach(function(p){h+=cardHTML(p,true)});
+  rail.innerHTML=h;
+  var grid=document.getElementById("grid");var g="";
+  ps.forEach(function(p){if(curCat!=="all"&&catOf(p.name)!==curCat)return;g+=cardHTML(p,false)});
+  grid.innerHTML=g;
+  document.getElementById("countLbl").textContent=ps.length+" products";
+  renderBar();
+}
+function cartCount(){var n=0;for(var k in cart)n+=cart[k];return n}
+function cartTotal(){var t=0;for(var k in cart){var p=byId(k);if(p)t+=p.price*cart[k]}return t}
+function renderBar(){document.getElementById("cartN").textContent=cartCount()}
+function chQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];saveCart();renderAll();if(document.getElementById("drawer").className.indexOf("open")>=0)renderCart()}
+function openDrawer(){renderCart();document.getElementById("ov").className="ov open";document.getElementById("drawer").className="drawer open"}
+function closeAll(){document.getElementById("ov").className="ov";document.getElementById("drawer").className="drawer";document.getElementById("sheet").className="sheet"}
+function renderCart(){
+  var box=document.getElementById("cartItems");var keys=Object.keys(cart);var h="";
+  if(!keys.length)h='<div class="note">Cart khaali hai — kuch add karo! 🛍️</div>';
+  keys.forEach(function(k){var p=byId(k);if(!p)return;var q=cart[k];
+    h+='<div class="ci"><img src="'+p.img+'"><div class="t"><b>'+esc(p.name)+'</b><span>₹'+p.price+' × '+q+'</span></div><div><button class="mini" data-dec="'+k+'">−</button> <button class="mini" data-inc="'+k+'">+</button></div><div class="p">₹'+(p.price*q)+'</div></div>';
+  });
+  box.innerHTML=h;
+  document.getElementById("cartTot").textContent="₹"+cartTotal();
+}
+var payM="cod";
+function setPay(m){payM=m;document.getElementById("payCOD").className="pay"+(m==="cod"?" on":"");document.getElementById("payON").className="pay"+(m==="online"?" on":"")}
+function doOrder(){
+  var keys=Object.keys(cart);if(!keys.length){alert("Pehle kuch add karo!");return}
+  var nm=document.getElementById("cName").value.trim(),ph=document.getElementById("cPhone").value.trim(),ad=document.getElementById("cAddr").value.trim();
+  if(!nm||!ph){alert("Naam aur mobile number likho");return}
+  var L=["Namaste! 🙏 Mujhe order karna hai:",""];
+  keys.forEach(function(k){var p=byId(k);if(p)L.push("• "+p.name+" x"+cart[k]+" — ₹"+(p.price*cart[k]))});
+  L.push("","Total: ₹"+cartTotal(),"Payment: "+(payM==="cod"?"Cash on Delivery 💵":"Online (UPI) 📱"),"","Naam: "+nm,"Mobile: "+ph,"Address: "+ad);
+  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(L.join("\n")),"_blank");
+}
+function copyUPI(){var done=function(){alert("UPI ID copy ho gayi!")};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText("8447661929@fam").then(done,done)}else{done()}}
+function goHome(){window.scrollTo({top:0,behavior:"smooth"})}
+function goShop(){document.getElementById("shopsec").scrollIntoView({behavior:"smooth"})}
+function goContact(){document.getElementById("contactsec").scrollIntoView({behavior:"smooth"})}
+function openAdmin(){closeAll();document.getElementById("ov").className="ov open";document.getElementById("sheet").className="sheet open"}
+var pendImg="";
+document.getElementById("aPhoto").addEventListener("change",function(e){
+  var f=e.target.files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){var img=new Image();img.onload=function(){var mx=800,s=mx/Math.max(img.width,img.height),sc=Math.min(1,s);var c=document.createElement("canvas");c.width=Math.round(img.width*sc);c.height=Math.round(img.height*sc);c.getContext("2d").drawImage(img,0,0,c.width,c.height);pendImg=c.toDataURL("image/jpeg",.72)};img.src=r.result};
+  r.readAsDataURL(f);
+});
+function addProduct(){
+  var n=document.getElementById("aName").value.trim(),pr=parseInt(document.getElementById("aPrice").value,10);
+  if(!n||!(pr>0)){alert("Naam aur sahi price likho");return}
+  if(!pendImg){alert("Photo chuno");return}
+  var c=getCustom();c.push({id:"c-"+Date.now(),name:n,hindi:document.getElementById("aHindi").value.trim(),price:pr,img:pendImg});
+  try{localStorage.setItem("ww_v3_custom",JSON.stringify(c))}catch(e){alert("Photo bahut badi hai");return}
+  pendImg="";alert("Product add ho gaya! 🎉");closeAll();renderAll();
+}
+document.addEventListener("click",function(e){
+  var t=e.target;
+  var add=t.closest("[data-add]");if(add){chQty(add.getAttribute("data-add"),1);return}
+  var inc=t.closest("[data-inc]");if(inc){chQty(inc.getAttribute("data-inc"),1);return}
+  var dec=t.closest("[data-dec]");if(dec){chQty(dec.getAttribute("data-dec"),-1);return}
+  var cat=t.closest("[data-cat]");if(cat){curCat=cat.getAttribute("data-cat");renderAll();goShop();return}
+  var pay=t.closest("[data-pay]");if(pay){setPay(pay.getAttribute("data-pay"));return}
+  var act=t.closest("[data-act]");if(!act)return;
+  var a=act.getAttribute("data-act");
+  if(a==="cart")openDrawer();
+  else if(a==="close")closeAll();
+  else if(a==="shop")goShop();
+  else if(a==="home")goHome();
+  else if(a==="contact")goContact();
+  else if(a==="order")doOrder();
+  else if(a==="copy")copyUPI();
+  else if(a==="admin")openAdmin();
+  else if(a==="addp")addProduct();
+  else if(a==="call")window.location.href="tel:+918447661929";
+  else if(a==="wa")window.open("https://wa.me/918447661929?text="+encodeURIComponent("Namaste! Mujhe Wool & Wonders ke products ke baare me jaanna hai."),"_blank");
+});
+document.getElementById("ov").addEventListener("click",closeAll);
+renderAll();
+</script>
 </body>
-</html>
+    </html>
