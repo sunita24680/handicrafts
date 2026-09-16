@@ -59,6 +59,92 @@ footer{text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
   <div class="logo"><div class="ball">🧶</div><div><b>Wool &amp; Wonders</b><small>HANDMADE CROCHET</small></div></div>
 </header>
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Wool & Wonders — Handmade Crochet</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--bg:#0E0E13;--sf:#17171F;--sf2:#1F1F2A;--gold:#E9C46A;--gold2:#F6D98A;--tx:#F5F1E8;--mut:#9C95A8;--line:#26262F}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,'Segoe UI',Roboto,'Noto Sans',sans-serif;padding-bottom:96px}
+.serif{font-family:Georgia,'Times New Roman',serif}
+.topbar{background:linear-gradient(90deg,#E9C46A,#F6D98A);color:#231a05;font-size:12px;font-weight:800;text-align:center;padding:8px;letter-spacing:.5px}
+.hdr{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(14,14,19,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo.ball{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,#E9C46A,#b8860b);display:grid;place-items:center;font-size:22px}
+.logo b{font-size:16px;letter-spacing:.3px}.logo small{display:block;font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:700}
+.hero{position:relative;padding:44px 20px 36px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:340px;height:340px;right:-110px;top:-110px;background:radial-gradient(circle,rgba(233,196,106,.28),transparent 70%);border-radius:50%}
+.hero::after{content:"";position:absolute;width:260px;height:260px;left:-90px;bottom:-120px;background:radial-gradient(circle,rgba(150,110,255,.16),transparent 70%);border-radius:50%}
+.hero.kick{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:800;color:var(--gold);border:1px solid rgba(233,196,106,.4);padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:40px;line-height:1.08;margin-bottom:10px;position:relative;z-index:1}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#E9C46A,#F6D98A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:14px;margin-bottom:20px;position:relative;z-index:1}
+.hero.row{display:flex;gap:10px;position:relative;z-index:1}
+.btn{border:none;border-radius:16px;padding:14px 22px;font-size:15px;font-weight:800}
+.btn-gold{background:linear-gradient(135deg,#E9C46A,#d9a83f);color:#231a05}
+.btn-ghost{background:var(--sf2);color:var(--tx);border:1px solid var(--line)}
+.sec{padding:14px 16px}
+.sec.hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.sec h2{font-size:21px}.sec h2 em{font-style:normal;color:var(--gold)}
+.sec.sub{font-size:12px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gcard{background:var(--sf);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.gcard.pemoji{font-size:56px;text-align:center;padding:24px 0 14px;background:linear-gradient(160deg,#23232f,#17171f)}
+.gcard img.pimg{width:100%;aspect-ratio:1;object-fit:cover}
+.gcard.in{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+.gcard.nm{font-size:13px;font-weight:700;line-height:1.3}
+.gcard.hn{font-size:11px;color:var(--mut)}
+.gcard.pr{font-size:16px;font-weight:800;color:var(--gold);margin-top:auto;padding-top:4px}
+.wabtn{width:100%;margin-top:8px;background:#25D366;color:#fff;border:none;border-radius:12px;padding:10px;font-size:13px;font-weight:800}
+.paysec{margin:18px 12px;background:linear-gradient(160deg,#1c1c28,#121218);border:1px solid var(--line);border-radius:24px;padding:22px 16px}
+.paysec h2{font-size:21px;margin-bottom:4px}.paysec h2 em{font-style:normal;color:var(--gold)}
+.paysec.sub{font-size:12.5px;color:var(--mut);margin-bottom:14px}
+.qrbox{background:#fff;border-radius:18px;padding:16px;text-align:center;color:#111}
+.upi{display:inline-block;background:#f0e6c8;color:#7a5b12;font-weight:800;padding:8px 14px;border-radius:10px;font-size:14px}
+.copybtn{background:#231a05;color:#F6D98A;border:none;border-radius:10px;padding:8px 16px;font-weight:800;font-size:13px;margin-left:6px}
+.qrbtn{background:#231a05;color:#F6D98A;border:none;border-radius:12px;padding:13px 24px;font-weight:800;font-size:15px;margin:8px 4px 8px 0}
+.qrbtn2{background:#fff;color:#231a05;border:2px solid #231a05;border-radius:12px;padding:11px 20px;font-weight:800;font-size:14px;margin:8px 0}
+.qrmodal{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;display:none;place-items:center;padding:20px}
+.qrmodal.open{display:grid}
+.qrin{background:#fff;color:#111;border-radius:20px;padding:26px 20px 20px;text-align:center;max-width:320px;width:100%;position:relative}
+.qrin img{width:200px;height:200px;object-fit:contain;margin:0 auto;display:block}
+.codbox{margin-top:12px;background:var(--sf2);border:1px dashed rgba(233,196,106,.5);border-radius:18px;padding:16px;text-align:center}
+.codbox b{color:var(--gold)}
+.contact{padding:20px 16px;text-align:center}
+.num{font-size:32px;font-weight:800;letter-spacing:1px;margin:10px 0;background:linear-gradient(90deg,#E9C46A,#F6D98A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.crow{display:flex;gap:10px;justify-content:center}
+.cbtn{flex:1;max-width:180px;border:none;border-radius:14px;padding:13px;font-weight:800;font-size:14px}
+footer{text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;background:rgba(20,20,28,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 6px calc(10px + env(safe-area-inset-bottom))}
+.bnav button{flex:1;background:none;border:none;color:var(--mut);font-size:10.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px}
+.bnav button span{font-size:20px}
+.bnav button.on{color:var(--gold)}
+.wafab{position:fixed;right:14px;bottom:92px;z-index:60;width:56px;height:56px;border-radius:50%;border:none;background:#25D366;font-size:27px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.admfab{position:fixed;left:14px;bottom:92px;z-index:60;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--sf2);color:var(--tx);font-size:19px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;display:none}
+.ov.open{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:-105%;z-index:101;background:var(--sf);border-radius:24px 24px 0 0;padding:20px 16px 30px;transition:bottom.28s ease;max-height:88vh;overflow-y:auto;border-top:1px solid var(--line)}
+.sheet.open{bottom:0}
+.sheet h3{font-size:18px;margin-bottom:12px}
+.x{float:right;border:1px solid var(--line);background:var(--sf2);color:var(--tx);width:32px;height:32px;border-radius:50%;font-size:15px}
+.note{font-size:12px;color:var(--mut);text-align:center;margin-top:10px;line-height:1.5}
+.hidden{display:none!important}
+.fld{width:100%;background:var(--sf2);border:1px solid var(--line);color:var(--tx);border-radius:12px;padding:12px;margin:6px 0;font-size:14px}
+.fld::placeholder{color:var(--mut)}
+.bigwa{width:100%;background:#25D366;color:#fff;border:none;border-radius:14px;padding:15px;font-size:16px;font-weight:800;margin-top:8px}
+.aprod{display:flex;align-items:center;justify-content:space-between;background:var(--sf2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:13px}
+.delbtn{background:#3a1f1f;color:#ff8080;border:1px solid #5a2a2a;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="topbar">🚚 FREE DELIVERY in Delhi NCR &nbsp;•&nbsp; 💵 COD AVAILABLE</div>
+<header class="hdr">
+  <div class="logo"><div class="ball">🧶</div><div><b>Wool &amp; Wonders</b><small>HANDMADE CROCHET</small></div></div>
+</header>
+
 <div class="hero">
   <span class="kick">✨ 100% HANDMADE IN INDIA</span>
   <h1 class="serif">Crochet,<br>but make it <em>fashion.</em></h1>
@@ -69,13 +155,21 @@ footer{text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
   </div>
 </div>
 
+<div class="sec" id="shopsec">
+  <div class="hd"><h2 class="serif">✨ Our <em>Collection</em></h2><span class="sub" id="countLbl"></span></div>
+  <div class="grid" id="grid"></div>
+  <div id="emptyProds" class="note" style="padding:24px;font-size:14px">🛍️ Products jald aa rahe hain!<br>Tab tak WhatsApp pe order karo 💬</div>
+</div>
+
 <div class="paysec" id="paysec">
   <h2 class="serif">💳 Easy <em>Payment</em></h2>
   <div class="sub">Cash on Delivery ya Online UPI — aapki marzi!</div>
   <div class="qrbox">
     <div style="font-weight:800;font-size:15px">📱 Online UPI Payment</div>
     <div class="note" style="color:#555;margin:10px 0 4px">UPI ID: <b>8447661929@fam</b> <button class="copybtn" data-act="copy">Copy</button></div>
-    <button class="qrbtn" data-act="qr">📷 QR Code Dekho</button>
+    <div><button class="qrbtn" data-act="qr">📷 QR Code Dekho</button><button class="qrbtn2" data-act="qrchange">✏️ QR Badlo</button></div>
+    <div id="qrResetWrap" class="hidden" style="margin-top:2px"><a href="#" data-act="qrreset" style="font-size:12px;color:#666">↩️ Default QR wapas lao</a></div>
+    <input type="file" id="qrFile" accept="image/*" class="hidden">
     <div class="note" style="color:#555">GPay / PhonePe / Paytm se pay karo,<br>screenshot WhatsApp pe bhej do ✅</div>
   </div>
   <div class="codbox"><b>💵 Cash on Delivery</b><div class="note">Pehle product dekho, phir payment karo.<br>Koi advance nahi! 🎉</div></div>
@@ -95,11 +189,27 @@ footer{text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
 
 <nav class="bnav">
   <button data-act="home" class="on"><span>🏠</span>Home</button>
+  <button data-act="shop"><span>🛍️</span>Shop</button>
   <button data-act="pay"><span>💳</span>Payment</button>
   <button data-act="contact"><span>📞</span>Contact</button>
 </nav>
 
 <button class="wafab" data-act="wa">💬</button>
+<button class="admfab" data-act="admin">⚙️</button>
+
+<div class="ov" id="ov"></div>
+<div class="sheet" id="sheet">
+  <button class="x" data-act="close">✕</button>
+  <h3 class="serif">➕ Product Add Karo</h3>
+  <input class="fld" id="aName" placeholder="Product naam">
+  <input class="fld" id="aHindi" placeholder="Hindi naam (optional)">
+  <input class="fld" id="aPrice" placeholder="Price ₹" inputmode="numeric">
+  <div style="font-size:13px;font-weight:700;margin:6px 0">Photo (optional):</div>
+  <input type="file" id="aPhoto" accept="image/*" class="fld">
+  <button class="bigwa" style="background:linear-gradient(135deg,#E9C46A,#d9a83f);color:#231a05" data-act="addp">✅ Product Add Karo</button>
+  <div class="note">Products isi device me save honge.</div>
+  <div id="adminList"></div>
+</div>
 
 <div class="qrmodal" id="qrmodal">
   <div class="qrin">
@@ -113,24 +223,76 @@ footer{text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
 
 <script>
 var WA = "918447661929";
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 function copyUPI(){var done=function(){alert("UPI ID copy ho gayi!")};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText("8447661929@fam").then(done,done)}else{done()}}
 function goHome(){window.scrollTo({top:0,behavior:"smooth"})}
+function goShop(){document.getElementById("shopsec").scrollIntoView({behavior:"smooth"})}
 function goPay(){document.getElementById("paysec").scrollIntoView({behavior:"smooth"})}
 function goContact(){document.getElementById("contactsec").scrollIntoView({behavior:"smooth"})}
+function getProds(){try{return JSON.parse(localStorage.getItem("ww_prods")||"[]")}catch(e){return[]}}
+function saveProds(p){try{localStorage.setItem("ww_prods",JSON.stringify(p))}catch(e){alert("Storage full ho gaya!")}}
+function byId(id){var r=null;getProds().forEach(function(p){if(p.id===id)r=p});return r}
+function catEmojiP(n){n=String(n).toLowerCase();if(n.indexOf("bag")>=0)return"👜";if(n.indexOf("dress")>=0)return"👗";return"🍽️"}
+function renderProds(){
+  var ps=getProds();
+  document.getElementById("countLbl").textContent=ps.length+" products";
+  document.getElementById("emptyProds").style.display=ps.length?"none":"block";
+  var g="";ps.forEach(function(p){
+    var em=p.img?'<img class="pimg" src="'+p.img+'" alt="">':'<div class="pemoji">'+catEmojiP(p.name)+'</div>';
+    g+='<div class="gcard">'+em+'<div class="in"><div class="nm">'+esc(p.name)+'</div>'+(p.hindi?'<div class="hn">'+esc(p.hindi)+'</div>':'')+'<div class="pr">₹'+p.price+'</div><button class="wabtn" data-wa="'+p.id+'">💬 WhatsApp pe Poocho</button></div></div>';
+  });
+  document.getElementById("grid").innerHTML=g;
+  var al="";ps.forEach(function(p){al+='<div class="aprod"><span>'+esc(p.name)+' — ₹'+p.price+'</span><button class="delbtn" data-del="'+p.id+'">Delete</button></div>'});
+  document.getElementById("adminList").innerHTML=al?'<div style="font-weight:800;margin:14px 0 4px">Added Products:</div>'+al:'';
+}
+function openAdmin(){renderProds();document.getElementById("ov").className="ov open";document.getElementById("sheet").className="sheet open"}
+function closeAll(){document.getElementById("ov").className="ov";document.getElementById("sheet").className="sheet"}
+var pendImg="";
+document.getElementById("aPhoto").addEventListener("change",function(e){
+  var f=e.target.files[0];if(!f){pendImg="";return}var r=new FileReader();
+  r.onload=function(){var img=new Image();img.onload=function(){var mx=800,s=mx/Math.max(img.width,img.height),sc=Math.min(1,s);var c=document.createElement("canvas");c.width=Math.round(img.width*sc);c.height=Math.round(img.height*sc);c.getContext("2d").drawImage(img,0,0,c.width,c.height);pendImg=c.toDataURL("image/jpeg",.72)};img.src=r.result};
+  r.readAsDataURL(f);
+});
+function addProduct(){
+  var n=document.getElementById("aName").value.trim(),pr=parseInt(document.getElementById("aPrice").value,10);
+  if(!n||!(pr>0)){alert("Naam aur sahi price likho");return}
+  var ps=getProds();ps.push({id:"p-"+Date.now(),name:n,hindi:document.getElementById("aHindi").value.trim(),price:pr,img:pendImg});
+  saveProds(ps);pendImg="";
+  document.getElementById("aPhoto").value="";document.getElementById("aName").value="";document.getElementById("aHindi").value="";document.getElementById("aPrice").value="";
+  alert("Product add ho gaya! 🎉");renderProds();
+}
+function getQR(){try{return localStorage.getItem("ww_qr")||"qr.jpg"}catch(e){return"qr.jpg"}}
+function hasCustomQR(){try{return!!localStorage.getItem("ww_qr")}catch(e){return false}}
+function refreshQR(){var q=getQR();var im=document.querySelector("#qrmodal img");if(im)im.src=q;document.getElementById("qrResetWrap").className=hasCustomQR()?"":"hidden"}
+document.getElementById("qrFile").addEventListener("change",function(e){
+  var f=e.target.files[0];if(!f)return;var r=new FileReader();
+  r.onload=function(){var img=new Image();img.onload=function(){var mx=600,s=mx/Math.max(img.width,img.height),sc=Math.min(1,s);var c=document.createElement("canvas");c.width=Math.round(img.width*sc);c.height=Math.round(img.height*sc);c.getContext("2d").drawImage(img,0,0,c.width,c.height);try{localStorage.setItem("ww_qr",c.toDataURL("image/jpeg",.85))}catch(err){alert("Photo bahut badi hai");return}refreshQR();alert("QR code badal gaya! ✅")};img.src=r.result};
+  r.readAsDataURL(f);e.target.value="";
+});
 document.addEventListener("click",function(e){
   var t=e.target;
+  var wa=t.closest("[data-wa]");if(wa){var p=byId(wa.getAttribute("data-wa"));if(p)window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("Namaste! Mujhe ye product chahiye: "+p.name+" (₹"+p.price+")"),"_blank");return}
+  var del=t.closest("[data-del]");if(del){if(confirm("Ye product delete karo?")){saveProds(getProds().filter(function(x){return x.id!==del.getAttribute("data-del")}));renderProds()}return}
   var act=t.closest("[data-act]");if(!act)return;
   var a=act.getAttribute("data-act");
   if(a==="home")goHome();
+  else if(a==="shop")goShop();
   else if(a==="pay")goPay();
   else if(a==="contact")goContact();
   else if(a==="copy")copyUPI();
   else if(a==="qr")document.getElementById("qrmodal").className="qrmodal open";
   else if(a==="qrclose")document.getElementById("qrmodal").className="qrmodal";
+  else if(a==="qrchange")document.getElementById("qrFile").click();
+  else if(a==="qrreset"){e.preventDefault();try{localStorage.removeItem("ww_qr")}catch(err){}refreshQR();}
+  else if(a==="admin")openAdmin();
+  else if(a==="close")closeAll();
+  else if(a==="addp")addProduct();
   else if(a==="call")window.location.href="tel:+918447661929";
   else if(a==="wa")window.open("https://wa.me/918447661929?text="+encodeURIComponent("Namaste! Mujhe Wool & Wonders ke baare me jaanna hai."),"_blank");
 });
+document.getElementById("ov").addEventListener("click",closeAll);
 document.getElementById("qrmodal").addEventListener("click",function(e){if(e.target===this)this.className="qrmodal"});
+renderProds();refreshQR();
 </script>
 </body>
 </html>
